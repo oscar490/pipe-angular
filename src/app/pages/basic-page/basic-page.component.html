@@ -72,7 +72,7 @@
   <div class="stats shadow w-full">
     <div class="stat">
       <div class="stat-title">Date Pipe</div>
-      <div class="stat-value">{{ customDate() | date:'long' }}</div>
+      <div class="stat-value">{{ customDate() | date:'long'    }}</div>
       <div class="stat-desc">{{ customDate() }}</div>
     </div>
 
@@ -104,6 +104,19 @@
       <div class="stat-value">{{ customDate() |date: 'short': 'GMT-4' }}</div>
       <div class="stat-desc">{{ customDate() }}</div>
     </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="flex flex-row gap-2">
+    <h1 class="text-2xl font-bold">Locale Actual
+      <span class="badge badge-secondary">{{currentLocale() | uppercase}}</span>
+    </h1>
+
+    <button class="btn btn-primary" (click)="changeLocale('fr')">Change en Français</button>
+    <button class="btn btn-primary" (click)="changeLocale('en')">Change to English</button>
+    <button class="btn btn-primary" (click)="changeLocale('es')">Cambiar a Español</button>
+
   </div>
 
 
