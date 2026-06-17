@@ -1,1 +1,24 @@
-<h1>Uncommon page</h1>
+<section class="mx-5 mb-5">
+  <h1 class="text-2xl font-bold">Pipes no tan comunes</h1>
+  <h3 class="text-xl font-thin">Pipes incluidos en Angular</h3>
+</section>
+
+
+<div class="grid grid-cols-1 md:grid-col-2 lg:grid-cols-3 gap-4">
+
+  <app-card title="i18nSelectPipe">
+    <p>Saludos {{ client().name  }}, es un placer {{ client().gender | i18nSelect:invitationMap}} a nuestro evento</p>
+
+    <button class="btn btn-primary" (click)="changeClient()">Cambiar cliente</button>
+  </app-card>
+
+  <app-card title="i18nSelectPipe">
+    <p>Actualmente {{ clients().length | i18nPlural:clientsMap() }}</p>
+
+    <button class="btn btn-primary"
+      (click)="deleteClient()"
+      [disabled]="clients().length == 0"
+    >Borrar cliente</button>
+  </app-card>
+
+</div>
