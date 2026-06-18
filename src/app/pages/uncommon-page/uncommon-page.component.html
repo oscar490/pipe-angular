@@ -21,4 +21,50 @@
     >Borrar cliente</button>
   </app-card>
 
+  <app-card title="Slice Pipe">
+    <strong>Original</strong>
+    <p class="text-primary">{{ clients().join(', ') }}</p>
+
+    <strong class="mt-2">Slice: 0.2</strong>
+    <p class="text-primary">{{ clients() | slice:0:2 }}</p>
+
+    <strong class="mt-2">Slice: 1.2</strong>
+    <p class="text-primary">{{ clients() | slice:1:2 }}</p>
+  </app-card>
+
+  <app-card title="Json Pipe">
+    <pre class="text-primary">{{ clients() | json }}</pre>
+    <pre class="text-primary">{{ client() | json }}</pre>
+    <pre class="text-primary">{{ clients().join(', ') | json | uppercase }}</pre>
+  </app-card>
+
+  <app-card title="KeyValue Pipe">
+    <pre>{{ profile | keyvalue | json}}</pre>
+    <ul>
+      @for (item of profile | keyvalue; track $index) {
+        <li>
+          <strong>{{ item.key | titlecase }} </strong>
+          <span class="text-primary">{{ item.value }}</span>
+        </li>
+      }
+    </ul>
+  </app-card>
+
+  <app-card title="Async Pipe">
+    <p>{{ promiseValue | async}}</p>
+
+    @if (promiseValue | async; as value) {
+      <p class="text-primary">{{ value }}</p>
+    } @else {
+      <p>Espere por favor...</p>
+    }
+
+    <h3 class="text-2xl">Observale</h3>
+    @if (myObservableTime | async; as valueObservable) {
+      <p>{{ valueObservable }}</p>
+    } @else {
+      <p>Espere por favor...</p>
+    }
+  </app-card>
+
 </div>
