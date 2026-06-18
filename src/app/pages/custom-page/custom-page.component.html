@@ -1,1 +1,71 @@
-<h1>Custom page</h1>
+
+<section class="mx-5">
+  <h1 class="text-2xl font-bold">Pipes Personalizados</h1>
+  <h3 class="text-xl font-thin">Pipes incluidos en Angular</h3>
+</section>
+
+
+<div class="stats shadow">
+  <div class="stat">
+    <div class="stat-title">ToogleClase Pipe</div>
+    <div class="stat-value">{{ name() | toggleCase: upper()}}</div>
+    <div class="stat-desc">{{ name() }}</div>
+
+    <button class="btn btn-primary mt-2" (click)="changeUpperLower()">ToggleCase</button>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="overflow-x-auto w-full">
+  <table class="table table-xs w-full">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Nombre</th>
+        <th>Puede volar</th>
+        <th>Color</th>
+        <th>Creador</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>1</th>
+        <td>Cy Ganderton</td>
+        <td>Quality Control Specialist</td>
+        <td>Littel, Schaden and Vandervort</td>
+        <td>Canada</td>
+      </tr>
+      <tr>
+        <th>2</th>
+        <td>Hart Hagerty</td>
+        <td>Desktop Support Technician</td>
+        <td>Zemlak, Daniel and Leannon</td>
+        <td>United States</td>
+      </tr>
+      <tr>
+        <th>3</th>
+        <td>Brice Swyre</td>
+        <td>Tax Accountant</td>
+        <td>Carroll Group</td>
+        <td>China</td>
+      </tr>
+      <tr>
+        <th>4</th>
+        <td>Marjy Ferencz</td>
+        <td>Office Assistant I</td>
+        <td>Rowe-Schoen</td>
+        <td>Russia</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th></th>
+        <th>Nombre</th>
+        <th>Puede volar</th>
+        <th>Color</th>
+        <th>Creador</th>
+      </tr>
+    </tfoot>
+  </table>
+</div>
