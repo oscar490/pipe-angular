@@ -19,7 +19,7 @@ export class HeroShortByPipe implements PipeTransform {
         return value.sort((a, b) => (a.canFly ? 1 : -1) - (b.canFly ? 1 : -1));
 
       case 'color':
-        return value.sort((a, b) => a.color - b.color);
+        return value.sort((a, b) => b.color - a.color);
 
       case 'creator':
         return value.sort((a, b) => a.creator - b.creator);

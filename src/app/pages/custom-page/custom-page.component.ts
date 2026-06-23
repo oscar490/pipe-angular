@@ -8,10 +8,11 @@ import { Component, computed, signal } from "@angular/core";
 import { HeroCreatorPipe } from '../../pipes/hero-creator.pipe';
 import { HeroShortByPipe } from '../../pipes/hero-short-by.pipe';
 import { Hero } from '../../interfaces/hero.interface';
+import { HeroFilterPipe } from '../../pipes/hero-filter.pipe';
 
 @Component({
   templateUrl: './custom-page.component.html',
-  imports: [ToggleCasePipe, CanFlyPipe, HeroColorPipe, HeroTextColorPipe, TitleCasePipe, HeroCreatorPipe, HeroShortByPipe]
+  imports: [ToggleCasePipe, CanFlyPipe, HeroColorPipe, HeroTextColorPipe, TitleCasePipe, HeroCreatorPipe, HeroShortByPipe, HeroFilterPipe]
 })
 
 export default class CustomPageComponent {
@@ -24,15 +25,26 @@ export default class CustomPageComponent {
 
   sortBy = signal<keyof Hero | null>(null);
 
-  sortByTitle = computed(() => {
-    let titles = {
-      'name': 'Por nombre',
-      'canFly': 'Por volar',
-      'color': 'Por color',
-      'creator': 'Por creador'
-    };
+  searchQuery = signal('')
 
-    //return (this.sortBy() == null) ? titles['name'] : titles[this.sortBy() | 'name'];
+  sortByTitle = computed(() => {
+
+    switch (this.sortBy()) {
+      case 'name':
+        return 'Por nombre';
+
+      case 'canFly':
+        return 'Por volar';
+
+      case 'color':
+        return 'Por color';
+
+      case 'creator':
+        return 'Por creador'
+
+      default:
+        return ''
+    }
   })
 
   changeUpperLower() {
